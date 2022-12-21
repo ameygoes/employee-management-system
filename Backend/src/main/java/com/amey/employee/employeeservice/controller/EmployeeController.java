@@ -5,6 +5,8 @@ import com.amey.employee.employeeservice.model.EmployeeModel;
 import com.amey.employee.employeeservice.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
@@ -21,5 +23,9 @@ public class EmployeeController {
         return employeeService.createEmployee(employeeModel);
     }
 
-    // public List<Employee>
+
+    @GetMapping("/employees")
+    public List<EmployeeModel> getAllEmployees(){
+        return employeeService.getEmployees();
+    }
 }
